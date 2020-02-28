@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    width: 20%;
+    display: grid;
+    grid-template-areas: 
+    "one plus"
+    "one minus"
+    "two mult"
+    "two part";
+}
+
+#score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 100%;
+}
+
+.btn {
+    width: 4rem;
+    height: 4rem;
+}
+
+#plus {
+    grid-area: plus;
+}
+
+#minus {
+    grid-area: minus;
+}
+
+#mult {
+    grid-area: mult;
+}
+
+#part {
+    grid-area: part;
+}
+
+#elementOne {
+    grid-area: one;
+}
+
+#elementTwo {
+    grid-area: two;
+}
