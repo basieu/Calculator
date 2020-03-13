@@ -1,47 +1,37 @@
-const elementOne = document.getElementById("elementOne");
-const elementTwo = document.getElementById("elementTwo");
-const plus = document.getElementById("plus");
-const minus = document.getElementById("minus");
-const mult = document.getElementById("mult");
-const part = document.getElementById("part");
-const score = document.getElementById("score");
+const result = document.getElementById("result");
+const clear = document.getElementById("clear");
 
-plus.addEventListener('click', function(){
-    var x = document.createElement("div");
-    x.innerText = elementOne.value + " + ";
-    x.innerText += elementTwo.value + " = ";
-    var y = document.createElement("div");
-    y = parseInt(elementOne.value) + parseInt(elementTwo.value);
-    x.innerText += y;
-    score.appendChild(x);
+const btns = document.getElementById("panel").getElementsByClassName("btn");
+const arr = document.getElementById("numbers").getElementsByClassName("digits");
+
+const arr_1 = new Array();
+const arr_2 = new Array();
+
+for (i = 0; i < arr.length; i++){
+    arr_1.push(arr[i]);
+}
+
+for (i = 0; i < btns.length; i++){
+    arr_2.push(btns[i]);
+}
+
+arr_1.forEach(function(i){
+    i.addEventListener('click', function(){
+        score.innerText += parseInt(i.innerText);
+    });
 });
 
-minus.addEventListener('click', function(){
-    var x = document.createElement("div");
-    x.innerText = elementOne.value + " - ";
-    x.innerText += elementTwo.value + " = ";
-    var y = document.createElement("div");
-    y = parseInt(elementOne.value) - parseInt(elementTwo.value);
-    x.innerText += y;
-    score.appendChild(x);
+arr_2.forEach(function(j){
+    j.addEventListener('click', function(){
+        score.innerText += j.innerText;
+    });
 });
 
-mult.addEventListener('click', function(){
-    var x = document.createElement("div");
-    x.innerText = elementOne.value + " * ";
-    x.innerText += elementTwo.value + " = ";
-    var y = document.createElement("div");
-    y = parseInt(elementOne.value) * parseInt(elementTwo.value);
-    x.innerText += y;
-    score.appendChild(x);
+clear.addEventListener('click', function(){
+    score.innerHTML = ' ';
 });
 
-part.addEventListener('click', function(){
-    var x = document.createElement("div");
-    x.innerText = elementOne.value + " / ";
-    x.innerText += elementTwo.value + " = ";
-    var y = document.createElement("div");
-    y = parseInt(elementOne.value) / parseInt(elementTwo.value);
-    x.innerText += y;
-    score.appendChild(x);
+result.addEventListener('click', function(){
+    var b = eval(score.innerText);
+    score.innerText += "=" + b;
 });
